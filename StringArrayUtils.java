@@ -172,42 +172,39 @@ public class StringArrayUtils {
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
         
+        int arrayLength = array.length;
+        int numOfDups = 0;
         
-         int numOfDups=0;
-         int newArrayIndex=0;
-         String prev=new String();
-        // System.out.println("------");
-         
-         // get new size first
-         for(int i=0; i<(array.length-1); i++){
+        // get count of dups
+        for(int i=0; i<(arrayLength-1); i++){
             if(array[i].equals(array[i+1])){
                 numOfDups++;
-              //  System.out.println(array[i] + " " + array[i+1]);
             }
-            
-             //System.out.println(numOfDups );
         }
-         
-         String retArray[] = new String[array.length-numOfDups];
-         
-        for(int i=0; i<(array.length-1); i++){
-            
-                   
-             if(array[i].equals(array[i+1])) {
-                 
-                }
-                else {
-                 retArray[newArrayIndex] = array[i];
-                 newArrayIndex++;
-                 System.out.println(array[i] + " " + i );
-                }
-     
-              
-            }
-            retArray[newArrayIndex] = array[array.length-1];
-            
-            
-            return retArray;
+        
+        // new array size = old array size - count of dups
+        String[] unDupArray = new String[arrayLength-numOfDups];
+        int newArrayIndex = 0;
+        // add non dups into array
+        // loop through array
+        for(int j=0;j<(arrayLength);j++) {
+        // if next index not out of bounds and if current index =  next index
+        
+        if(j < (arrayLength-1) && array[j+1].equals(array[j])) 
+         {}
+        //     add nothing
+        else {
+        // else
+        //     add this index to new array
+        //     increase newIndex Here
+                unDupArray[newArrayIndex] = array[j];
+                newArrayIndex++;
+           
+           }
+        }
+        
+        // return new array
+        return unDupArray;
     }
 
     /**
